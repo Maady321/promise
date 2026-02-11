@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For You, My Love ❤️ | Promise Day</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="background-overlay"></div>
+    <div class="floating-hearts-container" id="hearts-container"></div>
+
+    <!-- Page 1: Intro -->
+    <section id="page-intro" class="page active-page">
+      <div class="glass-card fade-in">
+        <h1 class="title-main">
+          For You, My Love <span class="heart-pulse">❤️</span>
+        </h1>
+        <p class="subtitle typing-effect" id="typing-text"></p>
+        <button id="start-btn" class="btn-primary">Start</button>
+      </div>
+    </section>
+
+    <!-- Page 2: Promise Gallery -->
+    <section id="page-gallery" class="page hidden">
+      <h2 class="gallery-title">Our Promise in Every Language</h2>
+      <div class="gallery-scroll-container" id="gallery-container">
+        <!-- Cards injected by JS -->
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll Down</span>
+        <div class="arrow">↓</div>
+      </div>
+    </section>
+
+    <!-- Page 3: Final Message -->
+    <section id="page-final" class="page hidden">
+      <div class="glass-card final-card fade-in-up">
+        <div class="profile-icon">💖</div>
+        <p class="final-text">
+          "No language can express what you mean to me,
+          <span class="highlight-name">My Love</span>. <br /><br />
+          This is my real promise.<br />
+          <span class="forever-text">Forever.</span>"
+        </p>
+        <button id="replay-btn" class="btn-secondary">
+          Replay Experience ↺
+        </button>
+      </div>
+    </section>
+
+    <!-- Main JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
