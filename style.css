@@ -17,6 +17,8 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent; /* Remove blue highlight on tap */
+    -webkit-touch-callout: none; /* Disable long-press menu on iOS */
+    user-select: none; /* Prevent text selection generally */
 }
 
 body {
@@ -31,6 +33,7 @@ body {
     position: relative;
     /* Disable default scroll for custom JS-guided experience */
     overflow-y: hidden; 
+    overscroll-behavior: none; /* Prevent bounce on mobile */
 }
 
 /* Background Animation */
@@ -175,8 +178,8 @@ button {
 #page-gallery {
     display: block; /* Override flex for scroll container logic */
     overflow-y: auto; /* Allow scrolling inside this page */
-    padding-top: 80px; /* Space for title/header */
-    padding-bottom: 100px;
+    padding-top: 100px; /* Increased space for title/header */
+    padding-bottom: 150px; /* Increased space for bottom content */
     scroll-behavior: smooth;
     -ms-overflow-style: none; /* Hide scrollbar IE */
     scrollbar-width: none;    /* Hide scrollbar Firefox */
@@ -341,7 +344,13 @@ button {
     animation: bounce 2s infinite;
     z-index: 15;
     pointer-events: none; /* Let clicks pass through */
+    transition: opacity 0.5s ease;
 }
+
+.scroll-indicator.hidden-scroll {
+    opacity: 0;
+}
+
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
     40% {transform: translateX(-50%) translateY(-10px);}
@@ -353,3 +362,60 @@ button {
     animation: blink 1s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
+
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+    .glass-card {
+        padding: 1.5rem;
+        width: 85%;
+    }
+
+    .title-main {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .language-card {
+        width: 90%;
+        padding: 15px;
+        min-height: 160px;
+    }
+
+    .promise-text {
+        font-size: 1.1rem;
+    }
+
+    .gallery-title {
+        font-size: 1.2rem;
+        padding: 15px 0;
+    }
+    
+    #page-gallery {
+        padding-top: 80px; /* Smaller header compensation */
+    }
+
+    .final-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .final-text {
+        font-size: 1.1rem;
+    }
+
+    .forever-text {
+        font-size: 2rem;
+    }
+
+    .btn-primary {
+        padding: 12px 28px;
+        font-size: 1rem;
+    }
+    
+    /* Ensure content is not hidden by scroll indicator on very small screens */
+    .gallery-scroll-container {
+        padding-bottom: 50px;
+    }
+}

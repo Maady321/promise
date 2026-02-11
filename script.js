@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     document.getElementById('start-btn').addEventListener('click', startExperience);
     document.getElementById('replay-btn').addEventListener('click', () => location.reload()); // Simple replay
+    
+    // Hide scroll indicator on scroll
+    const galleryPage = document.getElementById('page-gallery');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    
+    galleryPage.addEventListener('scroll', () => {
+        if (galleryPage.scrollTop > 50) {
+            scrollIndicator.classList.add('hidden-scroll');
+        } else {
+            scrollIndicator.classList.remove('hidden-scroll'); // Optional: show it back if at top
+        }
+    });
 });
 
 // ==========================================
